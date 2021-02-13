@@ -27,8 +27,8 @@ const Home = () => {
           to make the mundane tasks of creating, updating and sharing your
           resume as easy as 1, 2, 3. With this app, you can create multiple
           resumes, share them with recruiters through a unique link and print as
-          PDF, all for free, no advertisements, without losing the integrity and
-          privacy of your data.
+          PDF, all for free, <s>no advertisements</s>, without losing the
+          integrity and privacy of your data.
         </p>
 
         <Screenshots />
