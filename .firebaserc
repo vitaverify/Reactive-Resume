@@ -1,11 +1,11 @@
 {
   "projects": {
-    "default": "rx-resume"
+    "default": "vitaverify-rxresume"
   },
   "targets": {
-    "rx-resume": {
+    "vitaverify-rxresume": {
       "hosting": {
-        "rxresume": [
+        "vitaverify-rxresume": [
           "public"
         ]
       }

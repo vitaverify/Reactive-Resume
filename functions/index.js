@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
 
 admin.initializeApp();
 
-const BASE_URL = 'https://rxresu.me/r/';
+const BASE_URL = 'https://vitaverify-rxresume.web.app/r/';
 
 function timeout(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
