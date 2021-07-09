@@ -6,7 +6,7 @@ import { RiRefreshLine } from 'react-icons/ri';
 import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 import Hero from '../components/landing/Hero';
-import Screenshots from '../components/landing/Screenshots';
+// import Screenshots from '../components/landing/Screenshots';
 import Wrapper from '../components/shared/Wrapper';
 
 const Home = () => {
@@ -31,7 +31,7 @@ const Home = () => {
           privacy of your data.
         </p>
 
-        <Screenshots />
+        {/* <Screenshots /> */}
 
         <div className="pt-8 grid lg:grid-cols-2 lg:gap-x-10">
           <Feature
@@ -82,7 +82,7 @@ const Home = () => {
           </Feature>
         </div>
 
-        <div className="my-24">
+        {/* <div className="my-24">
           <div className="text-xl uppercase font-bold mb-8">
             Links of Interest
           </div>
@@ -118,14 +118,14 @@ const Home = () => {
             </Link>
             <Link to="/blog/jobs-during-covid-19">Jobs During COVID-19</Link>
           </div>
-        </div>
+        </div> */}
 
         <footer className="my-24">
           <p className="text-primary-500">
-            Licensed under <a href="/">MIT</a>
-            <br />
+            Resume builder
+            {/* <br />
             Made with love by{' '}
-            <a href="https://www.amruthpillai.com/">Amruth Pillai</a>
+            <a href="https://www.amruthpillai.com/">Amruth Pillai</a> */}
           </p>
         </footer>
       </div>
