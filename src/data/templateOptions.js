@@ -1,27 +1,27 @@
 const templateOptions = [
   {
     id: 'onyx',
-    name: 'Onyx',
+    name: 'Traditional',
   },
   {
     id: 'pikachu',
-    name: 'Pikachu',
+    name: 'Creative',
   },
   {
     id: 'gengar',
-    name: 'Gengar',
+    name: 'Startup',
   },
   {
     id: 'castform',
-    name: 'Castform',
+    name: 'MNC',
   },
   {
     id: 'glalie',
-    name: 'Glalie',
+    name: 'SME',
   },
   {
     id: 'celebi',
-    name: 'Celebi',
+    name: 'Engineering',
   },
 ];
 
