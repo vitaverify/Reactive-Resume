@@ -19,14 +19,14 @@ const Hero = () => {
   return (
     <div className="flex flex-col md:flex-row items-center">
       <Link to="/">
-        <span className="sr-only">Reactive Resume</span>
+        <span className="sr-only">Vita Resume Builder</span>
         <Logo className="shadow-lg" size="256px" />
       </Link>
 
       <div className="mt-12 md:mt-0 md:ml-12">
         <h1 className="text-5xl font-bold">{t('shared.appName')}</h1>
         <h2 className="mt-1 text-3xl text-primary-500">
-          {t('shared.shortDescription')}
+          Start building your resume here
         </h2>
 
         <div className="mt-12">

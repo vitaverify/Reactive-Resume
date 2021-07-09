@@ -1,7 +1,7 @@
 {
   "shared": {
     "appName": "Reactive Resume",
-    "shortDescription": "A free and open source resume builder.",
+    "shortDescription": "A resume builder.",
     "forms": {
       "name": "Name",
       "title": "Title",
