@@ -250,9 +250,9 @@
   },
   "profile": {
     "address": {
-      "city": "Bangalore, India -",
-      "line1": "#5/A, Banashankari Nivas,",
-      "line2": "Brindavan Layout, Subramanyapura,",
+      "city": "Singapore",
+      "line1": "383 Yishun Ave 6,",
+      "line2": ",",
       "pincode": "560061"
     },
     "birthDate": "1995-08-06",
@@ -263,19 +263,12 @@
     "photograph": "https://rxresu.me/images/picture.jpg",
     "subtitle": "Full Stack Web Developer",
     "website": "amruthpillai.com",
-    "phone": "+91 98453 36113"
+    "phone": "+65 9632 9186"
   },
   "projects": {
     "heading": "Projects",
     "visible": true,
     "items": [
-      {
-        "date": "2020-07-01",
-        "id": "c768dcca-90f5-4242-a608-6759b4f667fb",
-        "link": "https://github.com/AmruthPillai/Reactive-Resume",
-        "summary": "A resume builder that works for you. A few of the important features that make it awesome are minimalistic UI/UX, extensive customizability, portability, regularly updated templates, etc.\n\nFor more information, check out [rxresu.me](https://github.com/AmruthPillai/Reactive-Resume)",
-        "title": "Reactive Resume"
-      },
       {
         "date": "2020-04-01",
         "id": "6ca600b1-c21f-4d7b-8431-f7144d537dd3",
