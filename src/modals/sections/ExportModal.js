@@ -1,4 +1,4 @@
-import { FaPrint } from 'react-icons/fa';
+// import { FaPrint } from 'react-icons/fa';
 import { clone } from 'lodash';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
@@ -26,14 +26,20 @@ const ExportModal = () => {
     return () => unbind();
   }, [emitter, events]);
 
-  const handleOpenPrintDialog = () => {
-    if (typeof window !== `undefined`) {
-      window && window.print();
-    }
-  };
+  // const handleOpenPrintDialog = () => {
+  //   if (typeof window !== `undefined`) {
+  //     window && window.print();
+  //   }
+  // };
 
-  const handleDownload = async (isSinglePDF) => {
-    isSinglePDF ? setLoadingSingle(true) : setLoadingMulti(true);
+  const handleDownload = async (isSinglePDF, isExtPDF) => {
+    setLoadingSingle(true);
+    setLoadingMulti(true);
+
+    const fileExt = isExtPDF ? '.pdf' : '.docx';
+    const fileMIMEType = isExtPDF
+      ? 'application/pdf'
+      : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 
     try {
       const printResume = firebase.functions().httpsCallable('printResume');
@@ -41,12 +47,13 @@ const ExportModal = () => {
         id: state.id,
         type: isSinglePDF ? 'single' : 'multi',
       });
-      const blob = b64toBlob(data, 'application/pdf');
-      download(blob, `RxResume-${state.id}.pdf`, 'application/pdf');
+      const blob = b64toBlob(data, fileMIMEType);
+      download(blob, `vita-resume-${state.id}${fileExt}`, fileMIMEType);
     } catch (error) {
       toast(t('builder.toasts.printError'));
     } finally {
-      isSinglePDF ? setLoadingSingle(false) : setLoadingMulti(false);
+      setLoadingSingle(false);
+      setLoadingMulti(false);
     }
   };
 
@@ -69,7 +76,7 @@ const ExportModal = () => {
       state={[open, setOpen]}
       title={t('builder.actions.export.heading')}
     >
-      <div>
+      {/* <div>
         <h5 className="text-xl font-semibold mb-4">
           {t('modals.export.printDialog.heading')}
         </h5>
@@ -79,6 +86,32 @@ const ExportModal = () => {
         <Button icon={FaPrint} className="mt-5" onClick={handleOpenPrintDialog}>
           {t('modals.export.printDialog.button')}
         </Button>
+      </div>
+
+      <hr className="my-8" /> */}
+
+      <div>
+        <h5 className="text-xl font-semibold mb-4">Download Docx</h5>
+
+        <p className="leading-loose">{t('modals.export.downloadPDF.text')}</p>
+
+        <div className="mt-5 mb-4">
+          <div className="flex">
+            <Button
+              isLoading={isLoadingSingle}
+              onClick={() => handleDownload(true, false)}
+            >
+              {t('modals.export.downloadPDF.buttons.single')}
+            </Button>
+            <Button
+              className="ml-8"
+              isLoading={isLoadingMulti}
+              onClick={() => handleDownload(false, false)}
+            >
+              {t('modals.export.downloadPDF.buttons.multi')}
+            </Button>
+          </div>
+        </div>
       </div>
 
       <hr className="my-8" />
@@ -94,14 +127,14 @@ const ExportModal = () => {
           <div className="flex">
             <Button
               isLoading={isLoadingSingle}
-              onClick={() => handleDownload(true)}
+              onClick={() => handleDownload(true, true)}
             >
               {t('modals.export.downloadPDF.buttons.single')}
             </Button>
             <Button
               className="ml-8"
               isLoading={isLoadingMulti}
-              onClick={() => handleDownload(false)}
+              onClick={() => handleDownload(false, true)}
             >
               {t('modals.export.downloadPDF.buttons.multi')}
             </Button>
