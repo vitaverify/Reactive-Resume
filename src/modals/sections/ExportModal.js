@@ -117,18 +117,12 @@ const ExportModal = () => {
       <hr className="my-8" /> */}
 
       <div>
-        <h5 className="text-xl font-semibold mb-4">Download Word</h5>
+        <h5 className="text-xl font-semibold mb-4">Download MS Word</h5>
 
         <p className="leading-loose">{t('modals.export.downloadPDF.text')}</p>
 
         <div className="mt-5 mb-4">
           <div className="flex">
-            <Button
-              isLoading={isLoadingSingle}
-              onClick={() => handleDownload(true, false)}
-            >
-              {t('modals.export.downloadPDF.buttons.single')}
-            </Button>
             <Button
               className="ml-8"
               isLoading={isLoadingMulti}
