@@ -89,7 +89,7 @@ const ExportModal = () => {
       <hr className="my-8" /> */}
 
       <div>
-        <h5 className="text-xl font-semibold mb-4">Download Docx</h5>
+        <h5 className="text-xl font-semibold mb-4">Download Doc</h5>
 
         <p className="leading-loose">{t('modals.export.downloadPDF.text')}</p>
 
