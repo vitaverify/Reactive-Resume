@@ -32,12 +32,40 @@ const ExportModal = () => {
   //   }
   // };
 
+  function exportHTML(fileName) {
+    const header =
+      "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+      "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+      "xmlns='http://www.w3.org/TR/REC-html40'>" +
+      "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
+    const footer = '</body></html>';
+    const sourceHTML =
+      header + document.getElementById('page').innerHTML + footer;
+
+    const source = `data:application/vnd.ms-word;charset=utf-8,${encodeURIComponent(
+      sourceHTML,
+    )}`;
+    const fileDownload = document.createElement('a');
+    document.body.appendChild(fileDownload);
+    fileDownload.href = source;
+    fileDownload.download = `${fileName}.doc`;
+    fileDownload.click();
+    document.body.removeChild(fileDownload);
+  }
+
   const handleDownload = async (isSinglePDF, isExtPDF) => {
     setLoadingSingle(true);
     setLoadingMulti(true);
 
-    const fileExt = isExtPDF ? '.pdf' : '.doc';
-    const fileMIMEType = isExtPDF ? 'application/pdf' : 'application/msword';
+    const fileMIMEType = 'application/pdf';
+
+    const fileName = `vita-resume-${state.id}`;
+
+    if (!isExtPDF) {
+      setLoadingSingle(false);
+      setLoadingMulti(false);
+      return exportHTML(fileName);
+    }
 
     try {
       const printResume = firebase.functions().httpsCallable('printResume');
@@ -46,7 +74,7 @@ const ExportModal = () => {
         type: isSinglePDF ? 'single' : 'multi',
       });
       const blob = b64toBlob(data, fileMIMEType);
-      download(blob, `vita-resume-${state.id}${fileExt}`, fileMIMEType);
+      download(blob, `${fileName}.pdf`, fileMIMEType);
     } catch (error) {
       toast(t('builder.toasts.printError'));
     } finally {
@@ -89,7 +117,7 @@ const ExportModal = () => {
       <hr className="my-8" /> */}
 
       <div>
-        <h5 className="text-xl font-semibold mb-4">Download Doc</h5>
+        <h5 className="text-xl font-semibold mb-4">Download Word</h5>
 
         <p className="leading-loose">{t('modals.export.downloadPDF.text')}</p>
 
