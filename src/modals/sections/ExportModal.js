@@ -36,10 +36,8 @@ const ExportModal = () => {
     setLoadingSingle(true);
     setLoadingMulti(true);
 
-    const fileExt = isExtPDF ? '.pdf' : '.docx';
-    const fileMIMEType = isExtPDF
-      ? 'application/pdf'
-      : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    const fileExt = isExtPDF ? '.pdf' : '.doc';
+    const fileMIMEType = isExtPDF ? 'application/pdf' : 'application/msword';
 
     try {
       const printResume = firebase.functions().httpsCallable('printResume');
